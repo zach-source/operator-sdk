@@ -82,6 +82,8 @@ func GetCLIRoot() *cobra.Command {
 		version.NewCmd(),
 	)
 
+	root.PersistentFlags().String(flags.DeployDir, "deploy", "The deploy directory")
+
 	return root
 }
 

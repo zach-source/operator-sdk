@@ -105,10 +105,12 @@ func apiRun(cmd *cobra.Command, args []string) error {
 	}
 
 	absProjectPath := projutil.MustGetwd()
+	deployDir, _ := cmd.Flags().GetString("deploy-dir")
 
 	cfg := &input.Config{
 		Repo:           projutil.GetGoPkg(),
 		AbsProjectPath: absProjectPath,
+		DeployDir:      deployDir,
 	}
 	s := &scaffold.Scaffold{}
 

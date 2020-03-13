@@ -17,4 +17,5 @@ package flags
 // global command-line flags
 const (
 	VerboseOpt = "verbose"
+	DeployDir  = "deploy-dir"
 )

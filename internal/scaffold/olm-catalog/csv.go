@@ -42,10 +42,17 @@ import (
 )
 
 const (
-	OLMCatalogDir     = scaffold.DeployDir + string(filepath.Separator) + "olm-catalog"
 	CSVYamlFileExt    = ".clusterserviceversion.yaml"
 	CSVConfigYamlFile = "csv-config.yaml"
 )
+
+var (
+	OLMCatalogDir string
+)
+
+func init() {
+	OLMCatalogDir = scaffold.DeployDir + string(filepath.Separator) + "olm-catalog"
+}
 
 var ErrNoCSVVersion = errors.New("no CSV version supplied")
 

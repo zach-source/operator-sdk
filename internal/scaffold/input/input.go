@@ -128,4 +128,7 @@ type Config struct {
 
 	// ProjectName is the operator's name, ex. app-operator
 	ProjectName string
+
+	// DeployDir is the deploy director where the role.yaml and other files can be found
+	DeployDir string
 }

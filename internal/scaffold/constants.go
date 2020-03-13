@@ -16,6 +16,13 @@ package scaffold
 
 import (
 	"path/filepath"
+
+	"github.com/operator-framework/operator-sdk/internal/flags"
+	"github.com/spf13/viper"
+)
+
+var (
+	DeployDir, CRDsDir string
 )
 
 const (
@@ -32,6 +39,9 @@ const (
 	BuildTestDir   = BuildDir + filePathSep + "test-framework"
 	BuildBinDir    = BuildDir + filePathSep + "_output" + filePathSep + "bin"
 	BuildScriptDir = BuildDir + filePathSep + "bin"
-	DeployDir      = "deploy"
-	CRDsDir        = DeployDir + filePathSep + "crds"
 )
+
+func init() {
+	DeployDir = viper.GetString(flags.DeployDir)
+	CRDsDir = viper.GetString(flags.DeployDir) + filePathSep + "crds"
+}

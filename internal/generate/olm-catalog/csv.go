@@ -20,9 +20,13 @@ import (
 	"github.com/operator-framework/operator-sdk/internal/scaffold"
 )
 
-const (
-	OLMCatalogDir = scaffold.DeployDir + string(filepath.Separator) + "olm-catalog"
+var (
+	OLMCatalogDir string
 )
+
+func init() {
+	OLMCatalogDir = scaffold.DeployDir + string(filepath.Separator) + "olm-catalog"
+}
 
 func getCSVName(name, version string) string {
 	return name + ".v" + version
